@@ -1,6 +1,6 @@
 package com.pasha.arena.app.db.repository;
 
-import com.pasha.arena.app.db.model.User;
+import com.pasha.arena.app.db.model.user.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

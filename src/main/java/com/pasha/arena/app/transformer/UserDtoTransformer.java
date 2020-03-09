@@ -1,7 +1,7 @@
 package com.pasha.arena.app.transformer;
 
 import com.pasha.arena.app.constant.Role;
-import com.pasha.arena.app.db.model.User;
+import com.pasha.arena.app.db.model.user.User;
 import com.pasha.arena.app.web.model.auth.RegisterRequestDto;
 import com.pasha.arena.app.web.model.auth.UserDto;
 

@@ -1,6 +1,6 @@
 package com.pasha.arena.app.service;
 
-import com.pasha.arena.app.db.model.User;
+import com.pasha.arena.app.db.model.user.User;
 import com.pasha.arena.app.db.repository.UserRepository;
 import com.pasha.arena.app.transformer.UserDtoTransformer;
 import com.pasha.arena.app.web.model.auth.LoginRequestDto;
@@ -41,4 +41,3 @@ public class AuthService {
         return UserDtoTransformer.transform(user);
     }
 }
-

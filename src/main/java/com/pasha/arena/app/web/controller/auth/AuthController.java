@@ -2,8 +2,8 @@ package com.pasha.arena.app.web.controller.auth;
 
 import com.pasha.arena.app.service.AuthService;
 import com.pasha.arena.app.web.model.auth.LoginRequestDto;
-import com.pasha.arena.app.web.model.auth.UserDto;
 import com.pasha.arena.app.web.model.auth.RegisterRequestDto;
+import com.pasha.arena.app.web.model.auth.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,8 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequestDto registerRequestDto) {
 
-        log.info("Request to register: username: {}, password: {}", registerRequestDto.getUsername(), registerRequestDto.getPassword());
+        log.info("Request to register: username: {}, password: {}", registerRequestDto.getUsername(),
+                registerRequestDto.getPassword());
         boolean success = authService.register(registerRequestDto);
         if (success)
             return ResponseEntity.ok().build();
@@ -34,7 +35,8 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequestDto) {
 
-        log.info("Request to login: username: {}, password: {}", loginRequestDto.getUsername(), loginRequestDto.getPassword());
+        log.info("Request to login: username: {}, password: {}", loginRequestDto.getUsername(),
+                loginRequestDto.getPassword());
         UserDto userDto = authService.login(loginRequestDto);
         if (userDto != null)
             return ResponseEntity.ok(userDto);
