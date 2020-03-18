@@ -19,7 +19,7 @@ public class CodeforcesService {
     private final CodeforcesCommunicationService codeforcesCommunicationService;
 
     public User getCodeforcesData(){
-
+        return null;
     }
 }
 
