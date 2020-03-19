@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -27,4 +28,8 @@ public class UserDto {
     private String group;
     @NotNull
     private Role role;
+    @NotNull
+    private Long lastActiveAt;
+
+    private String codeForcesUsername;
 }

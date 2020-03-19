@@ -33,7 +33,7 @@ public class User {
     @NotNull
     private Role role;
     @NotNull
-    private LocalDateTime lastActiveAt;
-    @NotNull
-    private String codeforcesUsername;
+    private Long lastActiveAt;
+
+    private String codeForcesUsername;
 }
