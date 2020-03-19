@@ -27,7 +27,7 @@ public class AuthController {
                 registerRequestDto.getPassword());
         boolean success = authService.register(registerRequestDto);
         if (success)
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(true);
         else
             return ResponseEntity.badRequest().build();
     }
