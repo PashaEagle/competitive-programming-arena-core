@@ -1,0 +1,27 @@
+# SERVER
+server:
+  port: 7777
+
+# MONGODB
+mongodb:
+  database: arena
+  host: localhost
+  port: 27017
+  password: pass
+  user: user
+  credentials: ${mongodb.user}:${mongodb.password}@
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://${mongodb.credentials}${mongodb.host}:${mongodb.port}/${mongodb.database}
+
+# CODEFORCES
+codeforces:
+  uri: https://codeforces.com
+  path: /api
+  method:
+    user-info: /user.info
+  timeout:
+    connect: 10000
+    read: 10000

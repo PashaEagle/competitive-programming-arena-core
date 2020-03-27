@@ -9,7 +9,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -20,6 +19,8 @@ public class User {
 
     @Id
     private String id;
+    @NotNull
+    private String email;
     @NotNull
     private String username;
     @NotNull
@@ -36,4 +37,6 @@ public class User {
     private Long lastActiveAt;
 
     private String codeForcesUsername;
+
+    private String codeWarsUsername;
 }

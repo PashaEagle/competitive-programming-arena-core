@@ -10,6 +10,7 @@ public final class UserDtoTransformer {
     public static User transform(RegisterRequestDto registerRequestDto){
 
         return User.builder()
+                .email(registerRequestDto.getEmail())
                 .username(registerRequestDto.getUsername())
                 .fullName(registerRequestDto.getFullName())
                 .password(registerRequestDto.getPassword())
@@ -22,6 +23,7 @@ public final class UserDtoTransformer {
     public static UserDto transform(User user){
 
         return UserDto.builder()
+                .email(user.getEmail())
                 .username(user.getUsername())
                 .fullName(user.getFullName())
                 .password(user.getPassword())

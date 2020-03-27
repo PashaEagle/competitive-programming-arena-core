@@ -23,7 +23,7 @@ public class AuthService {
 
     public boolean register(RegisterRequestDto registerRequestDto) {
 
-        boolean userExists = userRepository.existsByUsername(registerRequestDto.getUsername());
+        boolean userExists = userRepository.existsByUsername(registerRequestDto.getUsername()) || userRepository.existsByEmail(registerRequestDto.getEmail());
         if (userExists) {
             return false;
         }
@@ -36,7 +36,7 @@ public class AuthService {
 
     public UserDto login(LoginRequestDto loginRequestDto) {
 
-        User user = userRepository.getByUsernameAndPassword(loginRequestDto.getUsername(),
+        User user = userRepository.getUserByLoginStringAndPassword(loginRequestDto.getLoginString(),
                 loginRequestDto.getPassword());
 
         if (user == null) {

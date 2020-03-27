@@ -23,7 +23,9 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequestDto registerRequestDto) {
 
-        log.info("Request to register: username: {}, password: {}", registerRequestDto.getUsername(),
+        log.info("Request to register: email: {}, username: {}, password: {}",
+                registerRequestDto.getEmail(),
+                registerRequestDto.getUsername(),
                 registerRequestDto.getPassword());
         boolean success = authService.register(registerRequestDto);
         if (success)
@@ -35,7 +37,8 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequestDto) {
 
-        log.info("Request to login: username: {}, password: {}", loginRequestDto.getUsername(),
+        log.info("Request to login: username/email: {}, password: {}",
+                loginRequestDto.getLoginString(),
                 loginRequestDto.getPassword());
         UserDto userDto = authService.login(loginRequestDto);
         if (userDto != null)
@@ -44,4 +47,3 @@ public class AuthController {
             return ResponseEntity.badRequest().build();
     }
 }
-
