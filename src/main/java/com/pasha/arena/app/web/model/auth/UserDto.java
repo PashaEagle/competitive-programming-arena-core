@@ -29,7 +29,7 @@ public class UserDto {
     private String group;
     @NotNull
     private Role role;
-    @NotNull
+
     private Long lastActiveAt;
 
     private String codeForcesUsername;
