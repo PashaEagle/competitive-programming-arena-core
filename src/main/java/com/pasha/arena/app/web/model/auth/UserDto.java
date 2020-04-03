@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -16,6 +15,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserDto {
 
+    @NotNull
+    private String email;
     @NotNull
     private String username;
     @NotNull
@@ -28,8 +29,10 @@ public class UserDto {
     private String group;
     @NotNull
     private Role role;
-    @NotNull
+
     private Long lastActiveAt;
 
     private String codeForcesUsername;
+
+    private String codeWarsUsername;
 }
