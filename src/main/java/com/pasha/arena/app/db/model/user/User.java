@@ -1,6 +1,7 @@
 package com.pasha.arena.app.db.model.user;
 
 import com.pasha.arena.app.constant.Role;
+import com.pasha.arena.app.db.model.user.data.codeforces.CodeForcesData;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,9 +13,9 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Builder
-@Document("user")
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Document("user")
 public class User {
 
     @Id
@@ -33,10 +34,12 @@ public class User {
     private String group;
     @NotNull
     private Role role;
-    @NotNull
+
     private Long lastActiveAt;
 
     private String codeForcesUsername;
+    private CodeForcesData codeForcesData;
 
     private String codeWarsUsername;
+//    private CodeWarsData codeWarsData;
 }

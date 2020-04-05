@@ -1,6 +1,7 @@
 package com.pasha.arena.app.web.model.auth;
 
 import com.pasha.arena.app.constant.Role;
+import com.pasha.arena.app.db.model.user.data.codeforces.CodeForcesData;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,7 @@ public class UserDto {
     private Long lastActiveAt;
 
     private String codeForcesUsername;
+    private CodeForcesData codeForcesData;
 
     private String codeWarsUsername;
 }

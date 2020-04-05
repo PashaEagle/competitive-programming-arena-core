@@ -14,10 +14,20 @@ public class CodeforcesUriBuilder {
     private final CodeforcesProperties codeforcesProperties;
 
     public URI getUserUri(String username) {
-
         return UriComponentsBuilder.fromUriString(codeforcesProperties.getUri())
                 .pathSegment(codeforcesProperties.getPath(), codeforcesProperties.getMethod().getUserInfo())
                 .queryParam("handles", username)
+                .build()
+                .encode()
+                .toUri();
+    }
+
+    public URI getSubmissionsUri(String username) {
+        return UriComponentsBuilder.fromUriString(codeforcesProperties.getUri())
+                .pathSegment(codeforcesProperties.getPath(), codeforcesProperties.getMethod().getUserSubmissions())
+                .queryParam("handle", username)
+                .queryParam("from", 1)
+                .queryParam("count", 30)
                 .build()
                 .encode()
                 .toUri();

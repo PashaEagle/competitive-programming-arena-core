@@ -22,6 +22,7 @@ codeforces:
   path: /api
   method:
     user-info: /user.info
+    user-submissions: /user.status
   timeout:
     connect: 10000
     read: 10000

@@ -25,6 +25,7 @@ public class CodeforcesProperties {
     public static class Method {
 
         private String userInfo;
+        private String userSubmissions;
     }
 
     private Timeout timeout;
