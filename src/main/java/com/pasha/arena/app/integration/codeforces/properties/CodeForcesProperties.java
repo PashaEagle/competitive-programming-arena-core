@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 @NoArgsConstructor
 @ConfigurationProperties("codeforces")
-public class CodeforcesProperties {
+public class CodeForcesProperties {
 
     private String uri;
     private String path;

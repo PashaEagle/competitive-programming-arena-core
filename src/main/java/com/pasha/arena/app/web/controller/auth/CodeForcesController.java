@@ -1,6 +1,6 @@
 package com.pasha.arena.app.web.controller.auth;
 
-import com.pasha.arena.app.service.CodeforcesService;
+import com.pasha.arena.app.service.CodeForcesService;
 import com.pasha.arena.app.web.model.auth.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/codeforces")
-public class CodeforcesController {
+public class CodeForcesController {
 
-    private final CodeforcesService codeforcesService;
+    private final CodeForcesService codeforcesService;
 
     @GetMapping("/exists")
     public ResponseEntity<Boolean> existsByUsername(@RequestParam String username) {

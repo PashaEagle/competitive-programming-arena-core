@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CodeforcesResponse<T> {
+public class CodeForcesResponse<T> {
 
     public enum ResponseStatus {OK, FAILED}
 

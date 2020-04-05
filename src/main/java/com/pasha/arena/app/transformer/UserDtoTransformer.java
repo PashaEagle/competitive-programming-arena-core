@@ -33,6 +33,7 @@ public final class UserDtoTransformer {
                 .codeForcesUsername(model.getCodeForcesUsername())
                 .codeForcesData(model.getCodeForcesData())
                 .codeWarsUsername(model.getCodeWarsUsername())
+                .codeWarsData(model.getCodeWarsData())
                 .build();
     }
 

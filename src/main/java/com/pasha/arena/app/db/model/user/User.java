@@ -2,6 +2,7 @@ package com.pasha.arena.app.db.model.user;
 
 import com.pasha.arena.app.constant.Role;
 import com.pasha.arena.app.db.model.user.data.codeforces.CodeForcesData;
+import com.pasha.arena.app.db.model.user.data.codewars.CodeWarsData;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,5 +42,5 @@ public class User {
     private CodeForcesData codeForcesData;
 
     private String codeWarsUsername;
-//    private CodeWarsData codeWarsData;
+    private CodeWarsData codeWarsData;
 }

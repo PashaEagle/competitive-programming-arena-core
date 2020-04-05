@@ -1,9 +1,9 @@
 package com.pasha.arena.app.integration.codeforces.http;
 
-import com.pasha.arena.app.integration.codeforces.dto.CodeforcesResponse;
+import com.pasha.arena.app.integration.codeforces.dto.CodeForcesResponse;
 import com.pasha.arena.app.integration.codeforces.dto.UserInfoResponse;
 import com.pasha.arena.app.integration.codeforces.dto.UserSubmissionResponse;
-import com.pasha.arena.app.integration.codeforces.uri.CodeforcesUriBuilder;
+import com.pasha.arena.app.integration.codeforces.uri.CodeForcesUriBuilder;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
@@ -19,17 +19,17 @@ import java.util.List;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class CodeforcesCommunicationService {
+public class CodeForcesCommunicationService {
 
-    private final CodeforcesUriBuilder codeforcesUriBuilder;
-    private final RestTemplate codeforcesRestTemplate;
+    private final CodeForcesUriBuilder codeforcesUriBuilder;
+    private final RestTemplate codeForcesRestTemplate;
 
     public boolean existsByUsername(String username) {
         URI uri = codeforcesUriBuilder.getUserUri(username);
-        ResponseEntity<CodeforcesResponse<List<UserInfoResponse>>> responseEntity = null;
+        ResponseEntity<CodeForcesResponse<List<UserInfoResponse>>> responseEntity = null;
         try {
-            responseEntity = codeforcesRestTemplate.exchange(uri,
-                HttpMethod.GET, null, new ParameterizedTypeReference<CodeforcesResponse<List<UserInfoResponse>>>() {
+            responseEntity = codeForcesRestTemplate.exchange(uri,
+                HttpMethod.GET, null, new ParameterizedTypeReference<CodeForcesResponse<List<UserInfoResponse>>>() {
                 });
         } catch (HttpClientErrorException.BadRequest e){
             return false;
@@ -39,10 +39,10 @@ public class CodeforcesCommunicationService {
 
     public UserInfoResponse getUserInfo(String username){
         URI uri = codeforcesUriBuilder.getUserUri(username);
-        ResponseEntity<CodeforcesResponse<List<UserInfoResponse>>> responseEntity = null;
+        ResponseEntity<CodeForcesResponse<List<UserInfoResponse>>> responseEntity = null;
         try {
-            responseEntity = codeforcesRestTemplate.exchange(uri,
-                    HttpMethod.GET, null, new ParameterizedTypeReference<CodeforcesResponse<List<UserInfoResponse>>>() {
+            responseEntity = codeForcesRestTemplate.exchange(uri,
+                    HttpMethod.GET, null, new ParameterizedTypeReference<CodeForcesResponse<List<UserInfoResponse>>>() {
                     });
         } catch (HttpClientErrorException.BadRequest e){
             return null;
@@ -52,10 +52,10 @@ public class CodeforcesCommunicationService {
 
     public List<UserSubmissionResponse> getUserSubmissions(String username){
         URI uri = codeforcesUriBuilder.getSubmissionsUri(username);
-        ResponseEntity<CodeforcesResponse<List<UserSubmissionResponse>>> responseEntity = null;
+        ResponseEntity<CodeForcesResponse<List<UserSubmissionResponse>>> responseEntity = null;
         try {
-            responseEntity = codeforcesRestTemplate.exchange(uri,
-                    HttpMethod.GET, null, new ParameterizedTypeReference<CodeforcesResponse<List<UserSubmissionResponse>>>() {
+            responseEntity = codeForcesRestTemplate.exchange(uri,
+                    HttpMethod.GET, null, new ParameterizedTypeReference<CodeForcesResponse<List<UserSubmissionResponse>>>() {
                     });
         } catch (HttpClientErrorException.BadRequest e){
             return null;
