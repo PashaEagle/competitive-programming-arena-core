@@ -25,25 +25,32 @@ public class UserController {
     @GetMapping
     public ResponseEntity<UserDto> getUser(@RequestParam String email) {
         log.info("Request to get info about user with email {} received..", email);
-        return ResponseEntity.ok(userService.getUser(email));
+        UserDto userDto = userService.getUser(email);
+        log.info("User successfully found");
+        return ResponseEntity.ok(userDto);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<UserDto>> getAll() {
         log.info("Request to get all users received..");
-        return ResponseEntity.ok(userService.getAll());
+        List<UserDto> users = userService.getAll();
+        log.info("Returning all the users from db, amount: {}", users.size());
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/exists")
     public ResponseEntity<Boolean> existsByUsername(@RequestParam String username) {
         log.info("Request to check user exists by username: {}", username);
-        return ResponseEntity.ok(userService.existsByUsername(username));
+        Boolean userExists = userService.existsByUsername(username);
+        log.info("User {} exists = {}", username, userExists);
+        return ResponseEntity.ok(userExists);
     }
 
     @PutMapping("/update")
     public ResponseEntity<?> update(@RequestBody UserDto userDto) {
         log.info("Request to update user info for user with email: {}", userDto);
         userService.update(userDto);
+        log.info("Successfully updated");
         return ResponseEntity.ok().build();
     }
 

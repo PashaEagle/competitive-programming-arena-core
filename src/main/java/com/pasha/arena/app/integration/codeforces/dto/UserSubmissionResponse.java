@@ -16,7 +16,7 @@ import java.util.List;
 public class UserSubmissionResponse {
 
     private Integer contestId;
-    private Integer creationTimeSeconds;
+    private Long creationTimeSeconds;
     private Problem problem;
     private Author author;
     private String programmingLanguage;

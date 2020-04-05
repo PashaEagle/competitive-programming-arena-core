@@ -21,12 +21,16 @@ public class CodeforcesController {
     @GetMapping("/exists")
     public ResponseEntity<Boolean> existsByUsername(@RequestParam String username) {
         log.info("Request to check codeforces handle exists: {}", username);
-        return ResponseEntity.ok(codeforcesService.existsByUsername(username));
+        Boolean handleExists = codeforcesService.existsByUsername(username);
+        log.info("Response on check codeforces handle exists: {}", handleExists);
+        return ResponseEntity.ok(handleExists);
     }
 
     @GetMapping("/user")
     public ResponseEntity<UserDto> getUserInfo(@RequestParam String username) {
         log.info("Request to get codeforces user info, username: {}", username);
-        return ResponseEntity.ok(codeforcesService.getUserInfo(username));
+        UserDto userDto = codeforcesService.getUserInfo(username);
+        log.info("Response on get codeforces user info, username: {}", username);
+        return ResponseEntity.ok(userDto);
     }
 }

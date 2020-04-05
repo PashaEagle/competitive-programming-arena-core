@@ -19,8 +19,8 @@ public class CodeForcesData {
     private String maxRank;
     private Integer rating;
     private Integer maxRating;
-    private LocalDateTime lastOnlineAt;
-    private LocalDateTime registeredAt;
+    private Long lastOnlineAt;
+    private Long registeredAt;
     private Integer submissionsCount;
     List<CodeForcesSubmission> last30Submissions;
 
@@ -30,7 +30,7 @@ public class CodeForcesData {
     @NoArgsConstructor
     public static class CodeForcesSubmission {
 
-        LocalDateTime submittedAt;
+        Long submittedAt;
         String problemName;
         Integer problemRating;
         String verdict;

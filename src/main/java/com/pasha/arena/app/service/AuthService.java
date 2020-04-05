@@ -22,12 +22,10 @@ public class AuthService {
     private final Clock utcClock;
 
     public boolean register(RegisterRequestDto registerRequestDto) {
-
         boolean userExists = userRepository.existsByUsername(registerRequestDto.getUsername()) || userRepository.existsByEmail(registerRequestDto.getEmail());
         if (userExists) {
             return false;
         }
-
         User user = UserDtoTransformer.transform(registerRequestDto);
         user.setLastActiveAt(System.currentTimeMillis());
         userRepository.save(user);
@@ -35,14 +33,11 @@ public class AuthService {
     }
 
     public UserDto login(LoginRequestDto loginRequestDto) {
-
         User user = userRepository.getUserByLoginStringAndPassword(loginRequestDto.getLoginString(),
                 loginRequestDto.getPassword());
-
         if (user == null) {
             return null;
         }
-
         return UserDtoTransformer.transform(user);
     }
 }

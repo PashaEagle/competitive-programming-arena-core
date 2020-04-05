@@ -19,10 +19,8 @@ public final class CodeForcesTransformer {
         codeForcesData.setMaxRank(infoResponse.getMaxRank());
         codeForcesData.setRating(infoResponse.getRating());
         codeForcesData.setMaxRating(infoResponse.getMaxRating());
-        codeForcesData.setLastOnlineAt(LocalDateTime.ofInstant(Instant.ofEpochSecond(infoResponse.getLastOnlineTimeSeconds()),
-                TimeZone.getDefault().toZoneId()));
-        codeForcesData.setRegisteredAt(LocalDateTime.ofInstant(Instant.ofEpochSecond(infoResponse.getRegistrationTimeSeconds()),
-                TimeZone.getDefault().toZoneId()));
+        codeForcesData.setLastOnlineAt(infoResponse.getLastOnlineTimeSeconds());
+        codeForcesData.setRegisteredAt(infoResponse.getRegistrationTimeSeconds());
 
         return codeForcesData;
     }
@@ -46,8 +44,7 @@ public final class CodeForcesTransformer {
                 .programmingLanguage(submissionResponse.getProgrammingLanguage())
                 .passedTestsCount(submissionResponse.getPassedTestCount())
                 .verdict(submissionResponse.getVerdict().name())
-                .submittedAt(LocalDateTime.ofInstant(Instant.ofEpochSecond(submissionResponse.getCreationTimeSeconds()),
-                        TimeZone.getDefault().toZoneId()))
+                .submittedAt(submissionResponse.getCreationTimeSeconds())
                 .build();
     }
 
