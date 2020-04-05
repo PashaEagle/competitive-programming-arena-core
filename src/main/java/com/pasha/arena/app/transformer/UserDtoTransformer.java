@@ -30,6 +30,7 @@ public final class UserDtoTransformer {
                 .age(model.getAge())
                 .group(model.getGroup())
                 .role(model.getRole())
+                .globalData(model.getGlobalData())
                 .codeForcesUsername(model.getCodeForcesUsername())
                 .codeForcesData(model.getCodeForcesData())
                 .codeWarsUsername(model.getCodeWarsUsername())

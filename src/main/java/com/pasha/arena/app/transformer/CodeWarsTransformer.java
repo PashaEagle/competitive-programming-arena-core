@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 
 public final class CodeWarsTransformer {
 
-    public static CodeWarsData fillFromUserInfoResponse(CodeWarsData codeWarsData,
-                                                        CodeWarsUserInfoResponse infoResponse) {
+    public static void fillFromUserInfoResponse(CodeWarsData codeWarsData,
+                                                CodeWarsUserInfoResponse infoResponse) {
         codeWarsData.setUsername(infoResponse.getUsername());
         codeWarsData.setFullname(infoResponse.getName());
         codeWarsData.setClan(infoResponse.getClan());
@@ -23,18 +23,16 @@ public final class CodeWarsTransformer {
         codeWarsData.setRankColor(infoResponse.getRanks().getOverall().getColor());
         codeWarsData.setRankScore(infoResponse.getRanks().getOverall().getScore());
 
-        return codeWarsData;
     }
 
 
-    public static CodeWarsData fillFromUserSubmissionsResponse(CodeWarsData codeWarsData,
-                                                               List<CodeWarsUserSubmissionResponse.Submission> submissionsResponse) {
+    public static void fillFromUserSubmissionsResponse(CodeWarsData codeWarsData,
+                                                       List<CodeWarsUserSubmissionResponse.Submission> submissionsResponse) {
         codeWarsData.setSubmissionsCount(submissionsResponse.size());
         codeWarsData.setSubmissions(submissionsResponse.stream()
                 .map(CodeWarsTransformer::transformSubmission)
                 .collect(Collectors.toList()));
 
-        return codeWarsData;
     }
 
 

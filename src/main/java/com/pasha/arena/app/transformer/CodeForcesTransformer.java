@@ -4,16 +4,13 @@ import com.pasha.arena.app.db.model.user.data.codeforces.CodeForcesData;
 import com.pasha.arena.app.integration.codeforces.dto.UserInfoResponse;
 import com.pasha.arena.app.integration.codeforces.dto.UserSubmissionResponse;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.TimeZone;
 import java.util.stream.Collectors;
 
 public final class CodeForcesTransformer {
 
-    public static CodeForcesData fillFromUserInfoResponse(CodeForcesData codeForcesData,
-                                                          UserInfoResponse infoResponse) {
+    public static void fillFromUserInfoResponse(CodeForcesData codeForcesData,
+                                                UserInfoResponse infoResponse) {
         codeForcesData.setUsername(infoResponse.getHandle());
         codeForcesData.setRank(infoResponse.getRank());
         codeForcesData.setMaxRank(infoResponse.getMaxRank());
@@ -22,18 +19,16 @@ public final class CodeForcesTransformer {
         codeForcesData.setLastOnlineAt(infoResponse.getLastOnlineTimeSeconds());
         codeForcesData.setRegisteredAt(infoResponse.getRegistrationTimeSeconds());
 
-        return codeForcesData;
     }
 
 
-    public static CodeForcesData fillFromUserSubmissionsResponse(CodeForcesData codeForcesData,
-                                                                 List<UserSubmissionResponse> submissionsResponse) {
+    public static void fillFromUserSubmissionsResponse(CodeForcesData codeForcesData,
+                                                       List<UserSubmissionResponse> submissionsResponse) {
         codeForcesData.setSubmissionsCount(submissionsResponse.size());
         codeForcesData.setLast30Submissions(submissionsResponse.stream()
                 .map(CodeForcesTransformer::transformSubmission)
                 .collect(Collectors.toList()));
 
-        return codeForcesData;
     }
 
 

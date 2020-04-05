@@ -1,6 +1,7 @@
 package com.pasha.arena.app.service;
 
 import com.pasha.arena.app.db.model.user.User;
+import com.pasha.arena.app.db.model.user.data.GlobalData;
 import com.pasha.arena.app.db.model.user.data.codeforces.CodeForcesData;
 import com.pasha.arena.app.db.model.user.data.codewars.CodeWarsData;
 import com.pasha.arena.app.db.repository.UserRepository;
@@ -55,6 +56,11 @@ public class CodeForcesService {
         CodeWarsTransformer.fillFromUserInfoResponse(codeWarsData, cwinfoResponse);
         CodeWarsTransformer.fillFromUserSubmissionsResponse(codeWarsData, cwsubmissionsResponse);
         user.setCodeWarsData(codeWarsData);
+
+        GlobalData globalData = new GlobalData();
+        globalData.setTotalAmountOfSubmissions(codeWarsData.getSubmissionsCount() + codeForcesData.getSubmissionsCount());
+        globalData.setSubmissionsLastMonth(codeWarsData.getSubmissionsCount() / 5 + codeForcesData.getSubmissionsCount() / 5);
+        user.setGlobalData(globalData);
 
         return UserDtoTransformer.transform(user);
     }

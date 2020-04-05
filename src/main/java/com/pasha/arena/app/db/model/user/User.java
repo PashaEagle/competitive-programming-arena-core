@@ -1,6 +1,7 @@
 package com.pasha.arena.app.db.model.user;
 
 import com.pasha.arena.app.constant.Role;
+import com.pasha.arena.app.db.model.user.data.GlobalData;
 import com.pasha.arena.app.db.model.user.data.codeforces.CodeForcesData;
 import com.pasha.arena.app.db.model.user.data.codewars.CodeWarsData;
 import lombok.AllArgsConstructor;
@@ -37,6 +38,8 @@ public class User {
     private Role role;
 
     private Long lastActiveAt;
+
+    private GlobalData globalData;
 
     private String codeForcesUsername;
     private CodeForcesData codeForcesData;
