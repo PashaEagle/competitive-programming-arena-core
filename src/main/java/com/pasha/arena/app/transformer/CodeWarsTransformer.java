@@ -4,6 +4,7 @@ import com.pasha.arena.app.db.model.user.data.codewars.CodeWarsData;
 import com.pasha.arena.app.integration.codewars.dto.CodeWarsUserInfoResponse;
 import com.pasha.arena.app.integration.codewars.dto.CodeWarsUserSubmissionResponse;
 
+import java.time.Instant;
 import java.time.ZoneOffset;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,10 +30,10 @@ public final class CodeWarsTransformer {
     public static void fillFromUserSubmissionsResponse(CodeWarsData codeWarsData,
                                                        List<CodeWarsUserSubmissionResponse.Submission> submissionsResponse) {
         codeWarsData.setSubmissionsCount(submissionsResponse.size());
-        codeWarsData.setSubmissions(submissionsResponse.stream()
+        codeWarsData.setSubmissionsLastMonth(submissionsResponse.stream()
+                .filter(sub -> sub.getCompletedAt().toEpochSecond(ZoneOffset.UTC) > (System.currentTimeMillis() / 1000) - 2629743)
                 .map(CodeWarsTransformer::transformSubmission)
                 .collect(Collectors.toList()));
-
     }
 
 

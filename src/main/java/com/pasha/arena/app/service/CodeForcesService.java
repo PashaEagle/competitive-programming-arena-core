@@ -41,7 +41,7 @@ public class CodeForcesService {
         String handle = user.getCodeForcesUsername();
         UserInfoResponse infoResponse = codeforcesCommunicationService.getUserInfo(handle);
         List<UserSubmissionResponse> submissionsResponse = codeforcesCommunicationService.getUserSubmissions(handle);
-
+        System.out.println("size = " + submissionsResponse.size());
         CodeForcesData codeForcesData = new CodeForcesData();
         CodeForcesTransformer.fillFromUserInfoResponse(codeForcesData, infoResponse);
         CodeForcesTransformer.fillFromUserSubmissionsResponse(codeForcesData, submissionsResponse);
@@ -59,8 +59,10 @@ public class CodeForcesService {
 
         GlobalData globalData = new GlobalData();
         globalData.setTotalAmountOfSubmissions(codeWarsData.getSubmissionsCount() + codeForcesData.getSubmissionsCount());
-        globalData.setSubmissionsLastMonth(codeWarsData.getSubmissionsCount() / 5 + codeForcesData.getSubmissionsCount() / 5);
+        globalData.setSubmissionsLastMonth(codeWarsData.getSubmissionsLastMonth().size() + codeForcesData.getSubmissionsLastMonth().size());
         user.setGlobalData(globalData);
+
+        userRepository.save(user);
 
         return UserDtoTransformer.transform(user);
     }

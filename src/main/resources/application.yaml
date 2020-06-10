@@ -28,7 +28,7 @@ codeforces:
     read: 10000
 
 
-    # CODEFORCES
+# CODEWARS
 codewars:
   uri: https://codewars.com
   path: /api/v1/users

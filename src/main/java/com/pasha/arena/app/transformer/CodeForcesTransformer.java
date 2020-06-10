@@ -25,7 +25,8 @@ public final class CodeForcesTransformer {
     public static void fillFromUserSubmissionsResponse(CodeForcesData codeForcesData,
                                                        List<UserSubmissionResponse> submissionsResponse) {
         codeForcesData.setSubmissionsCount(submissionsResponse.size());
-        codeForcesData.setLast30Submissions(submissionsResponse.stream()
+        codeForcesData.setSubmissionsLastMonth(submissionsResponse.stream()
+                .filter(sub -> sub.getCreationTimeSeconds() > (System.currentTimeMillis() / 1000) - 2629743)
                 .map(CodeForcesTransformer::transformSubmission)
                 .collect(Collectors.toList()));
 

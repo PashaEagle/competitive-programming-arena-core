@@ -26,8 +26,6 @@ public class CodeForcesUriBuilder {
         return UriComponentsBuilder.fromUriString(codeforcesProperties.getUri())
                 .pathSegment(codeforcesProperties.getPath(), codeforcesProperties.getMethod().getUserSubmissions())
                 .queryParam("handle", username)
-                .queryParam("from", 1)
-                .queryParam("count", 30)
                 .build()
                 .encode()
                 .toUri();
