@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 @NoArgsConstructor
 @ConfigurationProperties("codeforces")
-public class CodeforcesProperties {
+public class CodeForcesProperties {
 
     private String uri;
     private String path;
@@ -25,6 +25,7 @@ public class CodeforcesProperties {
     public static class Method {
 
         private String userInfo;
+        private String userSubmissions;
     }
 
     private Timeout timeout;

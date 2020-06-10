@@ -22,6 +22,19 @@ codeforces:
   path: /api
   method:
     user-info: /user.info
+    user-submissions: /user.status
+  timeout:
+    connect: 10000
+    read: 10000
+
+
+# CODEWARS
+codewars:
+  uri: https://codewars.com
+  path: /api/v1/users
+  method:
+    user-info: /
+    user-submissions: /code-challenges/completed
   timeout:
     connect: 10000
     read: 10000

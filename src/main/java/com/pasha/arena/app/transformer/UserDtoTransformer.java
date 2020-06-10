@@ -20,18 +20,21 @@ public final class UserDtoTransformer {
                 .build();
     }
 
-    public static UserDto transform(User user){
+    public static UserDto transform(User model){
 
         return UserDto.builder()
-                .email(user.getEmail())
-                .username(user.getUsername())
-                .fullName(user.getFullName())
-                .password(user.getPassword())
-                .age(user.getAge())
-                .group(user.getGroup())
-                .role(user.getRole())
-                .codeForcesUsername(user.getCodeForcesUsername())
-                .codeWarsUsername(user.getCodeWarsUsername())
+                .email(model.getEmail())
+                .username(model.getUsername())
+                .fullName(model.getFullName())
+                .password(model.getPassword())
+                .age(model.getAge())
+                .group(model.getGroup())
+                .role(model.getRole())
+                .globalData(model.getGlobalData())
+                .codeForcesUsername(model.getCodeForcesUsername())
+                .codeForcesData(model.getCodeForcesData())
+                .codeWarsUsername(model.getCodeWarsUsername())
+                .codeWarsData(model.getCodeWarsData())
                 .build();
     }
 
