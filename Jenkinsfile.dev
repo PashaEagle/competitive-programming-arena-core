@@ -20,7 +20,7 @@ pipeline {
         stage('Run') {
             steps {
                 echo 'Starting stage RUN'
-                sh 'java -jar target/app-0.0.1-SNAPSHOT.jar'
+                sh 'java -jar target/app-0.0.1-SNAPSHOT.jar &'
             }
         }
     }
